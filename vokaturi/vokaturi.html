@@ -1,0 +1,63 @@
+<!--
+<script type="text/x-red" data-template-name="vokaturi-options">
+
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-user"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('vokaturi-options',{
+        category: 'config',
+        defaults: {
+            name: {value : "Vokaturi (wav)"}
+        },
+
+        label: function() {
+            return this.name || "";
+        }
+    });
+</script>
+-->
+
+<script type="text/x-red" data-template-name="vokaturi">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-user"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('vokaturi',{
+      category: 'Vokaturi',
+      color: '#42c8f4',
+      defaults: {
+        name: {value: "Vokaturi"}
+      },
+      icon : "vokaturi.png",
+      label: function() {
+        return this.name || 'Vokaturi (wav)';
+      },
+      inputs: 1,
+      outputs: 1
+    });
+</script>
+
+<script type="text/x-red" data-help-name="vokaturi">
+<p>
+  Takes a WAV absolute filename in <code>msg.payload</code> and makes a request Vokaturi emotion library.
+</p>
+<p>
+The output in <code>msg.payload</code> will always contain a JSON. The property "valid" of
+the object will determine if the result can be used for further evaluations.
+</p>
+<p>
+  On success, the responses placed in <code>msg.payload</code> will have a "valid" field with value 1 and contain an object "probabilities"
+  with the value of the emotion estimation.
+</p>
+<p>
+  If an error occured the "valid" field will have  a value 0 and the field "error" will contain an error string
+</p>
+</script>
