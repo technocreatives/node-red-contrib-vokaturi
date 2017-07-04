@@ -14,5 +14,10 @@ Prerequisites
 ------------
 The python module requires <a href="https://www.scipy.org/install.html">scify</a>
 
+Libraries
+------------
+It uses OpenVokaturi 2.1b
+
 Usage
 -----
+The node takes a path as argument of the wav file to be analysed; internally it calls a python scripts that uses the openvokaturi facilities
